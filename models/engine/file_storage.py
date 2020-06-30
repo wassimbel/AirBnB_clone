@@ -11,12 +11,12 @@ from models.state import State
 from os import path
 
 
-
 class FileStorage:
     """class FileStorage  that serializes instances to a
        JSON file and deserializes JSON file to instances"""
-    classes = {"BaseModel": BaseModel, "User": User, "State": State, "City": City,
-               "Place": Place, "Review": Review, "Amenity": Amenity}
+    classes = {"BaseModel": BaseModel, "User": User, "State": State,
+               "City": City, "Place": Place,
+               "Review": Review, "Amenity": Amenity}
     __file_path = "file.json"
     __objects = {}
 
@@ -36,7 +36,8 @@ class FileStorage:
             json_obj = {}
             for key in FileStorage.__objects:
                 json_obj[key] = FileStorage.__objects[key].to_dict()
-            with open(FileStorage.__file_path, mode="w", encoding="utf-8") as file:
+            with open(FileStorage.__file_path, mode="w", encoding="utf-8")
+            as file:
                 json.dump(json_obj, file)
 
     def reload(self):
@@ -47,6 +48,7 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
                 from_json = json.load(f)
             for key, value in from_json.items():
-                FileStorage.__objects[key] = FileStorage.classes[value['__class__']](**value)
+                FileStorage.__objects[key] =
+                FileStorage.classes[value['__class__']](**value)
         except:
             pass
