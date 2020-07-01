@@ -27,6 +27,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b.name, "Holberton")
         self.assertEqual(b.my_number, 89)
         self.assertTrue(isinstance(self.base.created_at, datetime))
+        self.assertNotEqual(self.base.id, b.id)
+
+    def test_test1(self):
+        test1 = "id"
+        test = BaseModel()
+        self.assertIsNotNone(test.id, test1)
 
     def test_kwargs(self, *args, **kwargs):
         """ testing args and kwargs """
