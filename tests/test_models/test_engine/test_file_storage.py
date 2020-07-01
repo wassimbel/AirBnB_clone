@@ -45,7 +45,7 @@ class TestFileStorage(unittest.TestCase):
     def test_file_path(self):
         """ testing file_path """
         test = FileStorage()
-        self.assertIsInstance(test._FileStorage__file_path, str )
+        self.assertIsInstance(test._FileStorage__file_path, str)
 
     def test_doc_all(self):
         """ test """
@@ -67,7 +67,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         """ testing """
-        test = " serializes __objects to the JSON file (path: __file_path) "
+        test = " serializes __objects to the JSON file (path: __file_path)  "
         test1 = FileStorage.save.__doc__
         self.assertEqual(test, test1)
 
