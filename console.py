@@ -81,13 +81,55 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             elif len(split_) == 1:
                 print("** instance id missing **")
-            elif len(split_) == 2:
+            elif len(split_) == 2 and split_[0] in HBNBCommand.classes.keys():
                 class_id = split_[0] + '.' + split_[1]
                 if class_id not in storage.all():
-                    print("** no instnce found **")
+                    print("** no instance found **")
                 else:
                     del(storage.all()[class_id])
                     storage.save()
+
+    def do_all(self, arg):
+        """ Prints all string representation of all instances
+            based or not on the class name """
+        split_ = arg.split()
+        list = []
+        if split_[0] not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+        elif len(split_) == 0:
+            for value in storage.all().values():
+                list.append(value.__str__())
+        elif split_[0] in HBNBCommand.classes:
+            for value in storage.all():
+                if split_[0] in value:
+                    list.append(storage.all()[value].__str__())
+        print(list)
+
+    def do_update(self, arg):
+        """ Updates an instance based on the class name and id by adding
+            or updating attribute (save the change into the JSON file) """
+        split_ = arg.split()
+        if len(split_) == 0:
+            print("** class name missing **")
+        elif split_[0] not in HBNBCommand.classes:
+            print("** class doesn't exist")
+        elif len(split_) == 1:
+            print("** instance id missing **")
+        elif len(split_) > 1:
+            class_id = split_[0] + "." + split_[1]
+            if class_id not in storage.all().keys():
+                print("** no instance found")
+            elif len(split_) == 2:
+                print("** attribute name missing **")
+            elif len(split_) == 3:
+                print("** value missing **")
+            else:
+                class_id = str(split_[0]) + "." + str(split_[1])
+                for key in storage.all().keys():
+                    if (class_id == key):
+                        temp = storage.all()[key]
+                        setattr(temp, split_[2], split_[3])
+                        storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
