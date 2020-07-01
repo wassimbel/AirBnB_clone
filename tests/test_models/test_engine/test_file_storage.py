@@ -67,14 +67,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         """ testing """
-        test = ' deserializes the JSON file to __objects '
+        test = ' deserializes the JSON file to __objects  '
         test1 = FileStorage.reload.__doc__
-        self.assertEqual(test, test1)
-
-    def test_a(self):
-        """ testing """
-        test = ' serializes __objects to the JSON file (path: __file_path) '
-        test1 = FileStorage.save.__doc__
         self.assertEqual(test, test1)
 
 
