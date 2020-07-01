@@ -22,7 +22,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(self.base, "created_at"))
         self.assertTrue(hasattr(self.base, "updated_at"))
         self.assertTrue(isinstance(self.base.created_at, datetime))
-
+        self.assertTrue(isinstance(self.base.updated_at, datetime))
+        b = BaseModel()
+        b.name = "Holberton"
+        b.my_number = 89
+        self.assertEqual(b.name, "Holberton")
+        self.assertEqual(b.my_number, 89)
+        self.assertNotEqual(b.id, self.base.id)
 
     def test_kwargs(self, *args, **kwargs):
         """ testing args and kwargs """
@@ -30,7 +36,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str(self):
         """ test print """
-        str = "[{}] ({}) {}".format("BaseModel", self.base.id, self.base.__dict__)
+        str = "[{}] ({}) {}".format("BaseModel", self.base.id,
+                                    self.base.__dict__)
         self.assertEqual(print(str), print(self.base))
 
     def test_save(self):
@@ -45,7 +52,6 @@ class TestBaseModel(unittest.TestCase):
         """to_dict testing"""
         dic = BaseModel()
         self.assertIsInstance(dic.to_dict(), dict)
-
 
     def test_to_dict(self):
         """Test dict"""
