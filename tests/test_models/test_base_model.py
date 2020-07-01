@@ -35,5 +35,17 @@ class TestBaseModel(unittest.TestCase):
         """Test dict"""
         self.assertIsInstance(self.base.to_dict(), dict)
 
+    def test_id(self):
+        """ id testing """
+        b = BaseModel()
+        a = BaseModel()
+        self.assertNotEqual(b.id, a.id)
+
+    def test_is_an_instance(self):
+        """ instance testing """
+        c = BaseModel()
+        self.assertIsInstance(c, BaseModel)
+
+
 if __name__ == '__main__':
     unittest.main()
