@@ -39,6 +39,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(os.path.exists("file.json"))
         test = BaseModel(**self.base.to_dict())
         self.assertEqual(test.id, self.base.id)
+
     def test_str(self):
         """ test print """
         str = "[{}] ({}) {}".format("BaseModel", self.base.id,
