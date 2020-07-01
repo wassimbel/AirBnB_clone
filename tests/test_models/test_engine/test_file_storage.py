@@ -49,19 +49,19 @@ class TestFileStorage(unittest.TestCase):
 
     def test_doc_all(self):
         """ test """
-        test = ' returns the dictionary __objects '
+        test = " returns the dictionary __objects "
         test1 = FileStorage.all.__doc__
         self.assertEqual(test, test1)
 
     def test_doc_new(self):
         """ testing """
-        test = ' sets in __objects the obj with key <obj class name>.id '
+        test = " sets in __objects the obj with key <obj class name>.id "
         test1 = FileStorage.new.__doc__
         self.assertEqual(test, test1)
 
     def test_save(self):
         """ testing """
-        test = ' serializes __objects to the JSON file (path: __file_path) '
+        test = " serializes __objects to the JSON file (path: __file_path) "
         test1 = FileStorage.save.__doc__
         self.assertEqual(test, test1)
 
