@@ -36,10 +36,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b.my_number, 89)
         self.assertNotEqual(b.id, self.base.id)
         self.assertEqual(b.id, 1)
-    def test_kwargs(self, *args, **kwargs):
-        """ testing args and kwargs """
-        pass
-
+        self.assertTrue(os.path.exists("file.json"))
+        test = BaseModel(**self.base.to_dict())
+        self.assertEqual(test.id, self.base.id)
     def test_str(self):
         """ test print """
         str = "[{}] ({}) {}".format("BaseModel", self.base.id,
