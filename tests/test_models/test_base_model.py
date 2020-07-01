@@ -21,6 +21,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(self.base, "id"))
         self.assertTrue(hasattr(self.base, "created_at"))
         self.assertTrue(hasattr(self.base, "updated_at"))
+        self.assertEqual(self.base.id, self.base.id)
         b = BaseModel()
         b.name = "Holberton"
         b.my_number = 89
