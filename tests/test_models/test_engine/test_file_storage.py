@@ -47,5 +47,17 @@ class TestFileStorage(unittest.TestCase):
         test = FileStorage()
         self.assertIsInstance(test._FileStorage__file_path, str)
 
+    def test_doc_all(self):
+        """ test """
+        test = ' returns the dictionary __objects '
+        test1 = FileStorage.all.__doc__
+        self.assertEqual(test, test1)
+
+    def test_doc_new(self):
+        """ testing """
+        test = ' sets in __objects the obj with key <obj class name>.id '
+        test1 = FileStorage.new.__doc__
+        self.assertEqual(test, test1)
+
 if __name__ == '__main__':
     unittest.main()
