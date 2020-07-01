@@ -25,12 +25,9 @@ class TestBaseModel(unittest.TestCase):
         b = BaseModel()
         b.name = "Holberton"
         b.my_number = 89
-        b.id = 1
         self.assertEqual(b.name, "Holberton")
         self.assertEqual(b.my_number, 89)
-        self.assertEqual(b.id, 1)
         self.assertEqual(b.id, b.id)
-        self.assertNotEqual(b.id, self.base.id)
 
     def test_kwargs(self, *args, **kwargs):
         """ testing args and kwargs """
