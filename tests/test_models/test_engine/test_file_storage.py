@@ -71,5 +71,12 @@ class TestFileStorage(unittest.TestCase):
         test1 = FileStorage.save.__doc__
         self.assertEqual(test, test1)
 
+    def test_class(self):
+        """ testing """
+        test = " serializes instances to a JSON file and deserializes JSON "
+        test1 = FileStorage.__doc__
+        self.assertEqual(test, test1)
+
+
 if __name__ == '__main__':
     unittest.main()

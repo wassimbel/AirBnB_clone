@@ -12,8 +12,7 @@ from os import path
 
 
 class FileStorage:
-    """class FileStorage  that serializes instances to a
-       JSON file and deserializes JSON file to instances"""
+    """ serializes instances to a JSON file and deserializes JSON """
     classes = {"BaseModel": BaseModel, "User": User, "State": State,
                "City": City, "Place": Place,
                "Review": Review, "Amenity": Amenity}
