@@ -48,7 +48,9 @@ class TestFileStorage(unittest.TestCase):
 
     def test_a(self):
         """ test """
-        pass
+        test = ' filestorage class '
+        test1 = FileStorage.__doc__
+        self.assertEqual(test, test1)
 
     def test_b(self):
         """ test """
