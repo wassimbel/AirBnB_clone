@@ -9,32 +9,35 @@ from models.base_model import BaseModel
 
 class TestFileStorage(unittest.TestCase):
     """class TestFileStorage"""
-
     def test_init(self):
-        """ test """
-        f = FileStorage()
-        self.assertIsInstance(f, FileStorage)
-        b = BaseModel()
-        f = FileStorage()
-        f.new(b)
-        self.assertEqual(b, f.all()["BaseModel" + "." + b.id])
-
-    def test_a(self):
-        """ testing  """
-        b = BaseModel()
-        f = FileStorage()
-        f.new(b)
-        f.save()
-        test = f.all()
-        f.reload()
-        self.assertEqual(test, f.all())
-
-    def test_file(self):
-        """ testing file_path """
+        """ testin init """
         test = FileStorage()
-        self.assertIsInstance(test._FileStorage__file_path, str)
+        self.assertIsInstance(test, FileStorage)
+
+    def test_save(self):
+        """ testing save """
+        test = FileStorage()
+        test1 = BaseModel()
+        test.new(test1)
+        test.save()
         self.assertTrue(os.path.exists("file.json"))
 
+    def test_reload(self):
+        """ testing reload """
+        test = FileStorage()
+        test1 = BaseModel()
+        test.new(test1)
+        test.save()
+        test2 = test.all()
+        test.reload()
+        self.assertEqual(test2, test.all())
+
+    def test_new(self):
+        """ testing new """
+        test = FileStorage()
+        test1 = BaseModel()
+        test.new(test1)
+        self.assertEqual(test1, test.all()["BaseModel" + "." + test1.id])
 
 if __name__ == '__main__':
     unittest.main()
