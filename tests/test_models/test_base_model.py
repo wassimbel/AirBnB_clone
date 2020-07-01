@@ -13,7 +13,7 @@ class TestBaseModel(unittest.TestCase):
     """ class TestBaseModel """
 
     def setUp(self):
-        """ setup"""
+        """setup"""
         self.base = BaseModel()
 
     def test_init(self):
