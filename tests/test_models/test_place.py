@@ -3,7 +3,6 @@
 import unittest
 from models.place import Place
 from models.base_model import BaseModel
-from models.place import Place
 
 class Test_Place(unittest.TestCase):
     """ Place class testing """
@@ -36,6 +35,18 @@ class Test_Place(unittest.TestCase):
         self.assertIsInstance(a.longitude, float)
         self.assertIsInstance(a.amenity_ids, list)
         self.assertTrue(issubclass(Place, BaseModel))
+
+    def test_str(self):
+        """ test print """
+        p = Place()
+        str = "[{}] ({}) {}".format("Place", p.id,
+                                    p.__dict__)
+        self.assertEqual(print(str), print(p))
+
+    def test_to_dict(self):
+        """to_dict testing"""
+        dic = Place()
+        self.assertIsInstance(dic.to_dict(), dict)
 
 
 if __name__ == '__main__':
