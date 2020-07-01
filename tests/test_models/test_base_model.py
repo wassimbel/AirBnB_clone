@@ -26,6 +26,7 @@ class TestBaseModel(unittest.TestCase):
         b = BaseModel()
         b.name = "Holberton"
         b.my_number = 89
+        b.id = 1
         self.assertTrue(hasattr(b, "id"))
         self.assertTrue(hasattr(b, "created_at"))
         self.assertTrue(hasattr(b, "updated_at"))
@@ -34,7 +35,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b.name, "Holberton")
         self.assertEqual(b.my_number, 89)
         self.assertNotEqual(b.id, self.base.id)
-
+        self.assertEqual(b.id, 1)
     def test_kwargs(self, *args, **kwargs):
         """ testing args and kwargs """
         pass
