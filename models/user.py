@@ -9,3 +9,7 @@ class User(BaseModel):
     password = ""
     fist_name = ""
     last_name = ""
+
+    def __init__(self, *args, **kwargs):
+        """ instantiates """
+        super().__init__(self, *args, **kwargs)
