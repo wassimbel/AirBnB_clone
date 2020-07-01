@@ -26,6 +26,11 @@ class TestBaseModel(unittest.TestCase):
         b = BaseModel()
         b.name = "Holberton"
         b.my_number = 89
+        self.assertTrue(hasattr(b, "id"))
+        self.assertTrue(hasattr(b, "created_at"))
+        self.assertTrue(hasattr(b, "updated_at"))
+        self.assertTrue(hasattr(b, "name"))
+        self.assertTrue(hasattr(b, "my_number"))
         self.assertEqual(b.name, "Holberton")
         self.assertEqual(b.my_number, 89)
         self.assertNotEqual(b.id, self.base.id)
@@ -67,7 +72,6 @@ class TestBaseModel(unittest.TestCase):
         """ instance testing """
         c = BaseModel()
         self.assertIsInstance(c, BaseModel)
-
 
 if __name__ == '__main__':
     unittest.main()
