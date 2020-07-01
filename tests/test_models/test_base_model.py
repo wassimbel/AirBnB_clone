@@ -25,7 +25,7 @@ class TestBaseModel(unittest.TestCase):
         b.name = "Holberton"
         b.my_number = 89
         self.assertEqual(b.name, "Holberton")
-        self.assertEqual(b.id, 89)
+        self.assertEqual(b.my_number, 89)
 
     def test_kwargs(self, *args, **kwargs):
         """ testing args and kwargs """
