@@ -65,5 +65,12 @@ class TestBaseModel(unittest.TestCase):
         u1 = User()
         self.assertNotEqual(u.id, u1.id)
 
+    def test_doc_1(self):
+        """ test """
+        test = " subclass User "
+        test1 = User.__doc__
+        self.assertEqual(test, test1)
+
+
 if __name__ == '__main__':
     unittest.main()
