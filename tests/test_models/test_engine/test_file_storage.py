@@ -14,6 +14,7 @@ class TestFileStorage(unittest.TestCase):
         test = FileStorage()
         self.assertIsInstance(test, FileStorage)
         self.assertEqual(type(test), FileStorage)
+        self.assertFalse(hasattr(test, "id"))
 
     def test_save(self):
         """ testing save """
@@ -45,19 +46,6 @@ class TestFileStorage(unittest.TestCase):
         """ testing file_path """
         test = FileStorage()
         self.assertIsInstance(test._FileStorage__file_path, str)
-
-    def test_a(self):
-        """ test """
-        test = ' filestorage class '
-        test1 = FileStorage.__doc__
-        self.assertEqual(test, test1)
-
-    def test_b(self):
-        """ test """
-        test = ' new '
-        test1 = FileStorage.new.__doc__
-        self.assertEqual(test, test1)
-
 
 if __name__ == '__main__':
     unittest.main()
