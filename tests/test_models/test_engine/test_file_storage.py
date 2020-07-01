@@ -13,6 +13,7 @@ class TestFileStorage(unittest.TestCase):
         """ testin init """
         test = FileStorage()
         self.assertIsInstance(test, FileStorage)
+        self.assertEqual(type(test), FileStorage)
 
     def test_save(self):
         """ testing save """
@@ -21,6 +22,7 @@ class TestFileStorage(unittest.TestCase):
         test.new(test1)
         test.save()
         self.assertTrue(os.path.exists("file.json"))
+        self.assertIsInstance(test._FileStorage__objects, dict)
 
     def test_reload(self):
         """ testing reload """
@@ -38,6 +40,11 @@ class TestFileStorage(unittest.TestCase):
         test1 = BaseModel()
         test.new(test1)
         self.assertEqual(test1, test.all()["BaseModel" + "." + test1.id])
+
+    def test_file_path(self):
+        """ testing file_path """
+        test = FileStorage()
+        self.assertIsInstance(test._FileStorage__file_path, str)
 
 if __name__ == '__main__':
     unittest.main()
