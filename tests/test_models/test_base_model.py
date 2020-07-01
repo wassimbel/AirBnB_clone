@@ -31,6 +31,20 @@ class TestBaseModel(unittest.TestCase):
         str = "[{}] ({}) {}".format("BaseModel", self.base.id, self.base.__dict__)
         self.assertEqual(print(str), print(self.base))
 
+    def test_save(self):
+        """ save method testing """
+        d = BaseModel()
+        up = d.updated_at
+        d.save()
+        up1 = d.updated_at
+        self.assertNotEqual(up, up1)
+
+    def test_to_dict(self):
+        """to_dict testing"""
+        dic = BaseModel()
+        self.assertIsInstance(dic.to_dict(), dict)
+
+
     def test_to_dict(self):
         """Test dict"""
         self.assertIsInstance(self.base.to_dict(), dict)
