@@ -19,8 +19,8 @@ class TestBaseModel(unittest.TestCase):
     def test_init(self):
         """  instantiation test """
         self.assertTrue(hasattr(self.base, "id"))
-        self.assertTrue(hasattr(self.bm, "created_at"))
-        self.assertTrue(hasattr(self.bm, "updated_at"))
+        self.assertTrue(hasattr(self.base, "created_at"))
+        self.assertTrue(hasattr(self.base, "updated_at"))
 
     def test_kwargs(self, *args, **kwargs):
         """ testing args and kwargs """
@@ -28,7 +28,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str(self):
         """ test print """
-    str = "[{}] ({}) {}".format("BaseModel", self.base.id, self.base.__dict__)
+        str = "[{}] ({}) {}".format("BaseModel", self.base.id, self.base.__dict__)
         self.assertEqual(print(str), print(self.base))
 
     def test_to_dict(self):

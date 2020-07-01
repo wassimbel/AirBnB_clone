@@ -2,7 +2,7 @@
 """ Place Class Unittest """
 import unittest
 from models.place import Place
-
+from models.base_model import BaseModel
 
 class Test_Place(unittest.TestCase):
     """ Place class testing """
@@ -34,7 +34,7 @@ class Test_Place(unittest.TestCase):
         self.assertIsInstance(a.latitude, float)
         self.assertIsInstance(a.longitude, float)
         self.assertIsInstance(a.amenity_ids, list)
-        self.assertTrue(issubclass(Place, models.base_model.BaseModel))
+        self.assertTrue(issubclass(Place, BaseModel))
 
 
 if __name__ == '__main__':
