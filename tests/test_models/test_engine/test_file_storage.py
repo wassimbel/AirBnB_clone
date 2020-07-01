@@ -46,5 +46,13 @@ class TestFileStorage(unittest.TestCase):
         test = FileStorage()
         self.assertIsInstance(test._FileStorage__file_path, str)
 
+    def test_a(self):
+        """ test """
+        pass
+
+    def test_b(self):
+        """ test """
+        pass
+
 if __name__ == '__main__':
     unittest.main()
