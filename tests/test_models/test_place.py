@@ -3,6 +3,7 @@
 import unittest
 from models.place import Place
 from models.base_model import BaseModel
+from models.place import Place
 
 class Test_Place(unittest.TestCase):
     """ Place class testing """
