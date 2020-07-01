@@ -45,6 +45,18 @@ class Test_Amenity(unittest.TestCase):
         dic = Amenity()
         self.assertIsInstance(dic.to_dict(), dict)
 
+    def test_id(self):
+        """ id testing """
+        u = Amenity()
+        u1 = Amenity()
+        self.assertNotEqual(u.id, u1.id)
+
+    def test_doc_1(self):
+        """ test """
+        test = " subclass Amenity "
+        test1 = Amenity.__doc__
+        self.assertEqual(test, test1)
+
 
 if __name__ == '__main__':
     unittest.main()
